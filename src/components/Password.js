@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import fns from './utils/utilityfunctions'
 
 export default class Password extends Component {
     constructor(props) {
@@ -12,20 +13,12 @@ export default class Password extends Component {
     }
 
     updateInput(e, property) {
-        this.setState({[property]: e.target.value})
+        this.setState({ [property]: e.target.value })
     }
 
-    // update
-    usernameCheck() {
-        return true;
-    }
-    // update
-    passwordCheck() {
-        return true;
-    }
 
     createPassword() {
-        if (this.usernameCheck() && this.passwordCheck()) {
+        if (fns.usernameCheck() && fns.passwordCheck()) {
             alert('Username and password created')
         } else {
             alert('Please follow instructions when creating a username and password')
@@ -34,7 +27,7 @@ export default class Password extends Component {
 
     render() {
         return (
-            <div style={{margin: 20}}>
+            <div style={{ margin: 20 }}>
                 <h4>Create username and password</h4>
                 <span>Username must be at least 6 characters and cannot contain spaces.</span>
                 <br />
@@ -54,8 +47,8 @@ export default class Password extends Component {
                     floatingLabelText="Password"
                 /><br />
                 <br />
-                <RaisedButton onClick={()=>this.createPassword()} label="Create" secondary={true} />
-            </div> 
+                <RaisedButton onClick={() => this.createPassword()} label="Create" secondary={true} />
+            </div>
         )
     }
 }
